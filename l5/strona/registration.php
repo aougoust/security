@@ -9,7 +9,7 @@
  */
 $action = $_GET['action'];
 if ($action == register) {
-    $nick = substr(addslashes(htmlspecialchars($_POST['nick'])),0,32);
+    $nick = substr($_POST['nick'],0,32);
     $password = substr(addslashes(htmlspecialchars($_POST['password'])),0,32);
     $repassword = substr(addslashes(htmlspecialchars($_POST['repassword'])),0,32);
 

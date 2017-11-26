@@ -36,11 +36,11 @@ if(!$tid){
 
 $transfer = $conn->query("SELECT * FROM `transfers` WHERE `id`='$tid'")->fetch_assoc();
 $conn->close();
-if($transfer['from'] != $acc_no && $transfer['to'] != $acc_no){
+/*if($transfer['from'] != $acc_no && $transfer['to'] != $acc_no){
     echo '<br>Wystapil nieoczekiwany blad<br><a href="index.php">Strona Główna</a><br>';
     session_destroy();
     exit;
-}
+}*/
 
 echo "<center>NR PRZELEWU : {$transfer['id']}<br>
       NADAWCA : {$transfer['from']}<br>
