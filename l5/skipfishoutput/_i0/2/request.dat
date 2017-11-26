@@ -1,0 +1,11 @@
+GET /welcome.php/'" HTTP/1.1
+Host: localhost
+Accept-Encoding: gzip
+Connection: keep-alive
+Range: bytes=0-399999
+Authorization: Basic YWFhOmFhYWE=
+User-Agent: sfish'"
+Referer: sfish'"
+Accept-Language: sfish'",en
+Cookie: PHPSESSID=5a9ijdan6p73g6rphjtrotknj4
+

@@ -1,0 +1,13 @@
+POST /welcome.php?action=login HTTP/1.1
+Host: localhost
+Accept-Encoding: gzip
+Connection: keep-alive
+User-Agent: Mozilla/5.0 SF/2.10b
+Range: bytes=0-399999
+Referer: http://localhost/
+Authorization: Basic YWFhOmFhYWE=
+Cookie: PHPSESSID=5a9ijdan6p73g6rphjtrotknj4
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 26
+
+nick=9-8&password=skipfish

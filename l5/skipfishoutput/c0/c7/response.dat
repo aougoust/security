@@ -1,0 +1,20 @@
+HTTP/1.1 200 Partial Content
+Date: Sun, 26 Nov 2017 21:12:12 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Range: bytes 0-239/240
+Content-Length: 240
+Keep-Alive: timeout=5, max=98
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+<form method="post" action="welcome.php?action=login">
+    <table>
+        <tr class="tlo-b"><td>Nick:</td>
+            <td><input maxlength="18" type="text" name="nick"</td></tr>
+        <tr class="tlek"><td>Hasło:</td>
+            <td><input maxlength="32" type="password" name="password"></td></tr>
+        <tr><td colspan="2" align="center"><input type="submit" value="Zaloguj się"></td></tr>
+    </table>
+</form>

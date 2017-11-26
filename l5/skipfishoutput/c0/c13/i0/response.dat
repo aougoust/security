@@ -1,0 +1,17 @@
+HTTP/1.1 200 Partial Content
+Date: Sun, 26 Nov 2017 21:12:13 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Range: bytes 0-193/194
+Content-Length: 194
+Keep-Alive: timeout=5, max=73
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+
+Witaj skipfishbogusSkipfish-Inject:bo<br>NR KONTA : 12152912414694434495723695<br>STAN KONTA : 0<br><a href='create_transfer.php'>Utworz przelew	</a><a href='transfer_history.php'>Historia przelewow</a> <br><a href="logout.php">Wyloguj</a>
+1

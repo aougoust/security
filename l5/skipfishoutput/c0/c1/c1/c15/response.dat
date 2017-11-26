@@ -1,0 +1,16 @@
+HTTP/1.1 200 Partial Content
+Date: Sun, 26 Nov 2017 21:12:14 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Range: bytes 0-165/166
+Content-Length: 166
+Keep-Alive: timeout=5, max=54
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+
+<br><span style="color: green; font-weight: bold;">Zostałeś zalogowany jako localhost</span><br><br>Nieprawidłowe logowanie.<br><a href="index.php">Strona Główna</a><br>

@@ -1,0 +1,16 @@
+HTTP/1.1 200 Partial Content
+Date: Sun, 26 Nov 2017 21:12:12 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Range: bytes 0-341/342
+Content-Length: 342
+Keep-Alive: timeout=5, max=3
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+
+<center><form method="post" action="confirm_transfer.php"

@@ -1,0 +1,16 @@
+HTTP/1.1 200 Partial Content
+Date: Sun, 26 Nov 2017 21:12:12 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Range: bytes 0-249/250
+Content-Length: 250
+Keep-Alive: timeout=5, max=31
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+
+<br><span style="color: green; font-weight: bold;">Zostałeś zalogowany jako skipfish</span><br>Witaj skipfish<br>NR KONTA : 47414171521544343088329158<br>STAN KONTA : 0<br><a href='create_transfer.php'>Utworz przelew	</a><a href='transfer_history.php'>Historia przelewow</a> <br><a href="logout.php">Wyloguj</a>

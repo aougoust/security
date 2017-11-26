@@ -1,0 +1,2 @@
+SELECT * FROM transfers;
+UPDATE transfers SET confirmed = 1 WHERE id = x;

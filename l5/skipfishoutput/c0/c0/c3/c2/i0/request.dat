@@ -1,0 +1,14 @@
+POST /create_transfer.php/confirm_transfer.php HTTP/1.1
+Host: localhost
+Accept-Encoding: gzip
+Connection: keep-alive
+Range: bytes=0-399999
+Authorization: Basic YWFhOmFhYWE=
+User-Agent: sfish'"
+Referer: sfish'"
+Accept-Language: sfish'",en
+Cookie: PHPSESSID=5a9ijdan6p73g6rphjtrotknj4
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 29
+
+to=1&value=1'"&title=skipfish

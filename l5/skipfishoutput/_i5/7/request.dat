@@ -1,0 +1,10 @@
+GET /create_transfer.php/logout.php HTTP/1.1
+Host: localhost
+Accept-Encoding: gzip
+Connection: keep-alive
+Range: bytes=0-399999
+Authorization: Basic YWFhOmFhYWE=
+Referer: -->">'>'"<sfi000086v155376>
+User-Agent: -->">'>'"<sfi000086v155376>
+Cookie: PHPSESSID=5a9ijdan6p73g6rphjtrotknj4
+

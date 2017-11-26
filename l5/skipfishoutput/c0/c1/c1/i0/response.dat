@@ -1,0 +1,16 @@
+HTTP/1.1 200 Partial Content
+Date: Sun, 26 Nov 2017 21:12:13 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Range: bytes 0-245/246
+Content-Length: 246
+Keep-Alive: timeout=5, max=59
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+
+<br><span style="color: green; font-weight: bold;">Zostałeś zalogowany jako 9-8</span><br>Witaj 9-8<br>NR KONTA : 05895968525120134511178440<br>STAN KONTA : 0<br><a href='create_transfer.php'>Utworz przelew	</a><a href='transfer_history.php'>Historia przelewow</a> <br><a href="logout.php">Wyloguj</a>

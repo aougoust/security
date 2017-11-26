@@ -1,0 +1,107 @@
+GET http://localhost/ name=http://localhost/ type=serv linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=99 notes=4 sig=0xbd9c7c71
+GET http://localhost/create_transfer.php/ name=create_transfer.php type=dir linked=yes browsers=7 browser_used=FAST dup=0 code=200 len=742 notes=5 sig=0xe310c694
+GET http://localhost/create_transfer.php/Konta/ name=Konta type=dir linked=no browsers=7 browser_used=FAST dup=0 code=200 len=742 notes=3 sig=0x9ce12342
+GET http://localhost/create_transfer.php/Kwota/ name=Kwota type=dir linked=no browsers=7 browser_used=FAST dup=1 code=200 len=742 notes=3 sig=0x9ce12342
+GET http://localhost/create_transfer.php/pr/ name=pr type=dir linked=no browsers=7 browser_used=FAST dup=1 code=200 len=742 notes=3 sig=0x9ce12342
+GET http://localhost/create_transfer.php/confirm_transfer.php name=confirm_transfer.php type=file linked=yes browsers=7 browser_used=FAST dup=0 code=200 len=742 notes=2 sig=0xf1b07434
+POST http://localhost/create_transfer.php/confirm_transfer.php DATA:to=1&value=1&title=skipfish name=title type=param linked=yes browsers=0 browser_used=FAST dup=0 returns_404 code=200 len=100 notes=1 sig=0xce32b6d7
+POST http://localhost/create_transfer.php/confirm_transfer.php DATA:to=1&value=1&title=skipfish name=to type=param linked=yes browsers=0 browser_used=FAST dup=0 returns_404 code=200 len=100 notes=1 sig=0xce32b6d7
+POST http://localhost/create_transfer.php/confirm_transfer.php DATA:to=1&value=1&title=skipfish name=value type=param linked=yes browsers=0 browser_used=FAST dup=0 returns_404 code=200 len=100 notes=3 sig=0x4810f8bb
+GET http://localhost/create_transfer.php/Glowna.sfish name=Glowna.sfish type=file linked=no browsers=7 browser_used=FAST dup=0 code=200 len=742 notes=3 sig=0x9ced2342
+GET http://localhost/create_transfer.php/Konta.sfish name=Konta.sfish type=file linked=no browsers=7 browser_used=FAST dup=1 code=200 len=742 notes=3 sig=0x9ced2342
+GET http://localhost/create_transfer.php/Kwota.sfish name=Kwota.sfish type=file linked=no browsers=7 browser_used=FAST dup=1 code=200 len=742 notes=3 sig=0x9ced2342
+GET http://localhost/create_transfer.php/logout.php name=logout.php type=file linked=yes browsers=7 browser_used=FAST dup=0 code=200 len=742 notes=1 sig=0xce7ab6d7
+GET http://localhost/create_transfer.php/Nr.sfish name=Nr.sfish type=file linked=no browsers=7 browser_used=FAST dup=1 code=200 len=742 notes=3 sig=0x9ced2342
+GET http://localhost/create_transfer.php/pr.sfish name=pr.sfish type=file linked=no browsers=7 browser_used=FAST dup=1 code=200 len=742 notes=3 sig=0x9ced2342
+GET http://localhost/create_transfer.php/to.sfish name=to.sfish type=file linked=no browsers=7 browser_used=FAST dup=1 code=200 len=742 notes=3 sig=0x9ced2342
+GET http://localhost/create_transfer.php/Tytul.sfish name=Tytul.sfish type=file linked=no browsers=7 browser_used=FAST dup=1 code=200 len=742 notes=3 sig=0x9ced2342
+GET http://localhost/create_transfer.php/welcome.php name=welcome.php type=file linked=yes browsers=0 browser_used=FAST dup=1 code=200 len=742 notes=1 sig=0xce7ab6d7
+GET http://localhost/welcome.php name=welcome.php type=file linked=yes browsers=7 browser_used=FAST dup=0 code=200 len=101 notes=3 sig=0x289a25dc
+GET http://localhost/welcome.php?action=login name=action type=param linked=yes browsers=0 browser_used=FAST dup=0 code=301 len=1 notes=2 sig=0x8006ed4
+POST http://localhost/welcome.php?action=login DATA:nick=skipfish&password=skipfish name=nick type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=315 notes=4 sig=0xa4f5eb3
+POST http://localhost/welcome.php?action=login DATA:nick=0&password=skipfish name=0 type=value linked=no browsers=0 browser_used=FAST dup=0 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=47414171521544343088329158&password=skipfish name=47414171521544343088329158 type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=68334706915606254856720162&password=skipfish name=68334706915606254856720162 type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=80&password=skipfish name=80 type=value linked=no browsers=0 browser_used=FAST dup=0 code=200 len=168 notes=1 sig=0xff7fffff
+POST http://localhost/welcome.php?action=login DATA:nick=a&password=skipfish name=a type=value linked=no browsers=0 browser_used=FAST dup=1 code=200 len=167 notes=1 sig=0xff7fffff
+POST http://localhost/welcome.php?action=login DATA:nick=bold&password=skipfish name=bold type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=confirm_transfer&password=skipfish name=confirm_transfer type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=create_transfer&password=skipfish name=create_transfer type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=danych&password=skipfish name=danych type=value linked=no browsers=0 browser_used=FAST dup=1 code=200 len=172 notes=1 sig=0xff7fffff
+POST http://localhost/welcome.php?action=login DATA:nick=err&password=skipfish name=err type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=Glowna&password=skipfish name=Glowna type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=Historia&password=skipfish name=Historia type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=jako&password=skipfish name=jako type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=Konta&password=skipfish name=Konta type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=Kwota&password=skipfish name=Kwota type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=localhost&password=skipfish name=localhost type=value linked=no browsers=0 browser_used=FAST dup=1 code=200 len=175 notes=1 sig=0xff7fffff
+POST http://localhost/welcome.php?action=login DATA:nick=login&password=skipfish name=login type=value linked=no browsers=0 browser_used=FAST dup=1 code=200 len=171 notes=1 sig=0xff7fffff
+POST http://localhost/welcome.php?action=login DATA:nick=logout&password=skipfish name=logout type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=Logowanie&password=skipfish name=Logowanie type=value linked=no browsers=0 browser_used=FAST dup=1 code=200 len=175 notes=1 sig=0xff7fffff
+POST http://localhost/welcome.php?action=login DATA:nick=Nr&password=skipfish name=Nr type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=pr&password=skipfish name=pr type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=przelew&password=skipfish name=przelew type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=przelewow&password=skipfish name=przelewow type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=STAN&password=skipfish name=STAN type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=Strona&password=skipfish name=Strona type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=to&password=skipfish name=to type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=transfer_history&password=skipfish name=transfer_history type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=Tytul&password=skipfish name=Tytul type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=Utworz&password=skipfish name=Utworz type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=weight&password=skipfish name=weight type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=Wyloguj&password=skipfish name=Wyloguj type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=zalogowany&password=skipfish name=zalogowany type=value linked=no browsers=0 browser_used=FAST dup=1 code=301 len=1 notes=2 sig=0x6bdbfc85
+POST http://localhost/welcome.php?action=login DATA:nick=skipfish&password=skipfish name=password type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=315 notes=1 sig=0x6b1bfc85
+GET http://localhost/confirm_transfer.php name=confirm_transfer.php type=pathinfo linked=no browsers=0 browser_used=FAST dup=0 code=200 len=100 notes=2 sig=0xce62b6d7
+GET http://localhost/create_transfer.php name=create_transfer.php type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=0 code=200 len=100 notes=1 sig=0x5878cd80
+GET http://localhost/create_transfer.php/confirm_transfer.php name=confirm_transfer.php type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Glowna.sfish name=Glowna.sfish type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Konta name=Konta type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Konta.sfish name=Konta.sfish type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Kwota name=Kwota type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Kwota.sfish name=Kwota.sfish type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/logout.php name=logout.php type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Nr.sfish name=Nr.sfish type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/pr name=pr type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/pr.sfish name=pr.sfish type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/to.sfish name=to.sfish type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Tytul.sfish name=Tytul.sfish type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php name=create_transfer.php type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0x5878cd80
+GET http://localhost/create_transfer.php/confirm_transfer.php name=confirm_transfer.php type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Glowna.sfish name=Glowna.sfish type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Konta name=Konta type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Konta.sfish name=Konta.sfish type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Kwota name=Kwota type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Kwota.sfish name=Kwota.sfish type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/logout.php name=logout.php type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Nr.sfish name=Nr.sfish type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/pr name=pr type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/pr.sfish name=pr.sfish type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/to.sfish name=to.sfish type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Tytul.sfish name=Tytul.sfish type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php name=create_transfer.php type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0x5878cd80
+GET http://localhost/create_transfer.php/confirm_transfer.php name=confirm_transfer.php type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Glowna.sfish name=Glowna.sfish type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Konta name=Konta type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Konta.sfish name=Konta.sfish type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Kwota name=Kwota type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Kwota.sfish name=Kwota.sfish type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/logout.php name=logout.php type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Nr.sfish name=Nr.sfish type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/pr name=pr type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/pr.sfish name=pr.sfish type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/to.sfish name=to.sfish type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/create_transfer.php/Tytul.sfish name=Tytul.sfish type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=1 code=200 len=100 notes=1 sig=0xce62b6d7
+GET http://localhost/index.php name=index.php type=pathinfo linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=99 notes=0 sig=0xffefffff
+GET http://localhost/login.php name=login.php type=pathinfo linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=419 notes=1 sig=0x4200ad0b
+GET http://localhost/login.php?action=err name=action type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=440 notes=0 sig=0xffbfffff
+GET http://localhost/logout.php name=logout.php type=pathinfo linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=63 notes=0 sig=0xffefffff
+GET http://localhost/registration.php name=registration.php type=pathinfo linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=633 notes=2 sig=0x41f3e13f
+GET http://localhost/registration.php?action=register name=action type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=762 notes=1 sig=0xffbed694
+POST http://localhost/registration.php?action=register DATA:nick=skipfish&password=skipfish&repassword=skipfish name=nick type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=718 notes=3 sig=0x6b190cdf
+POST http://localhost/registration.php?action=register DATA:nick=skipfish&password=skipfish&repassword=skipfish name=password type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=718 notes=1 sig=0xffbed694
+POST http://localhost/registration.php?action=register DATA:nick=skipfish&password=skipfish&repassword=skipfish name=repassword type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=797 notes=1 sig=0xffbed694
+GET http://localhost/transfer_history.php name=transfer_history.php type=pathinfo linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=148 notes=1 sig=0xce62b6d7
+GET http://localhost/welcome.php name=welcome.php type=pathinfo linked=yes browsers=0 browser_used=MSIE dup=1 code=200 len=101 notes=1 sig=0xce62b6d7
+GET http://localhost/welcome.php name=welcome.php type=pathinfo linked=yes browsers=0 browser_used=FFOX dup=1 code=200 len=101 notes=1 sig=0xce62b6d7
+GET http://localhost/welcome.php name=welcome.php type=pathinfo linked=yes browsers=0 browser_used=PHONE dup=0 code=200 len=101 notes=2 sig=0x306174ce
