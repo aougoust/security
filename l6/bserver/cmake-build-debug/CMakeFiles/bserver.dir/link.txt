@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/bserver.dir/main.cpp.o  -o bserver -lssl -lcrypto 

@@ -1,0 +1,3 @@
+/home/kacper/programowanie/security/l6/bserver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/kacper/programowanie/security/l6/bserver/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/kacper/programowanie/security/l6/bserver/cmake-build-debug/CMakeFiles/bserver.dir
