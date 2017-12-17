@@ -9,8 +9,6 @@
 #include <fstream>
 #include <strings.h>
 #include <cstring>
-#include <chrono>
-#include <thread>
 
 using namespace std;
 
@@ -36,9 +34,6 @@ bool generateKeys(int bits, string path){
 
     rsa = RSA_new();
 
-    auto start = std::chrono::system_clock::now();
-
-
     ret = RSA_generate_key_ex(rsa, bits, bignum, NULL);
     if(ret != 1)return false;
 
@@ -53,9 +48,7 @@ bool generateKeys(int bits, string path){
     string pvkpath = path.append("private.pem");
     const char* privatek_path = pvkpath.c_str();
 
-    auto end = std::chrono::system_clock::now();
 
-    std::this_thread::sleep_for(std::chrono::seconds(10) - (end - start));
 
     bp_private = BIO_new_file(privatek_path, "w+");
     ret = PEM_write_bio_RSAPrivateKey(bp_private, rsa, NULL, NULL, NULL, 0, NULL);
@@ -136,7 +129,7 @@ void mylisten(int portno){
         cout << ("ERROR on accept") << endl;
     bzero(buffer, 256);
 
-    string end_program = "exit";
+    string end = "exit";
 
     OpenSSL_add_all_algorithms();
     ERR_load_BIO_strings();
@@ -162,7 +155,7 @@ void mylisten(int portno){
             close(sockfd);
             break;
         }
-        if(end_program.compare(buffer) == 0){
+        if(end.compare(buffer) == 0){
             cout << "EXIT" << endl;
             close(newsockfd);
             close(sockfd);
@@ -181,39 +174,9 @@ void mylisten(int portno){
         BN_gcd(r, bignum, pkey->n, ctx);
 
         if(atoi(BN_bn2dec(r)) == 1){
-            BIGNUM* rnd = BN_new();
-
-            BIGNUM* rndexp = BN_new();
-            BIGNUM* z = BN_new();
-            BIGNUM* y = BN_new();
-
-            BIGNUM* rndinv = BN_new();
-
-            BIGNUM* ret = BN_new();
-
-            RSA* pubkey = NULL;
-            EVP_PKEY* evp_pubkey = NULL;
-            FILE* pubFile = fopen("/home/kacper/programowanie/security/l6/bserver/cmake-build-debug/ppublic.pem","r+");
-            evp_pubkey = PEM_read_PUBKEY(pubFile, NULL, NULL, NULL);
-            pubkey = EVP_PKEY_get1_RSA(evp_pubkey);
-
-            auto start = std::chrono::system_clock::now();
-
-            BN_rand_range(rnd, pkey->n);
-
-            BN_mod_exp(rndexp, rnd, pubkey->e, pkey->n, ctx);
-
-            BN_mod_mul(z, rndexp, bignum, pkey->n, ctx);
-
-            BN_mod_inverse(rndinv, rnd, pkey->n, ctx);
-
-            BN_mod_exp(y, z, pkey->d, pkey->n, ctx);
-
-            BN_mod_mul(ret, rndinv, y, pkey->n, ctx);
-
-            auto end = std::chrono::system_clock::now();
-            std::this_thread::sleep_for(std::chrono::seconds(10) - (end - start));
-            char* sp = BN_bn2dec(ret);
+            BIGNUM *a = BN_new();
+            BN_mod_exp(a, bignum, pkey->d, pkey->n, ctx);
+            char* sp = BN_bn2dec(a);
             n = write(newsockfd, sp, strlen(sp)+1);
             if (n < 0) {
                 cout << "ERROR writing to socket" << endl;
@@ -228,7 +191,7 @@ void mylisten(int portno){
     close(sockfd);
 }
 
-void testGenOld(){
+void testGen(){
     RSA *rsa = NULL;
     BIGNUM *bignum = NULL;
 
@@ -258,41 +221,7 @@ void testGenOld(){
     }
 }
 
-void testGen(){
-    RSA *rsa = NULL;
-    BIGNUM *bignum = NULL;
-
-    unsigned long e = RSA_F4;
-
-    bignum = BN_new();
-    BN_set_word(bignum, e);
-
-    int sizes[4] = {2048, 4096, 8192, 16384};
-
-    rsa = RSA_new();
-
-    long double full_time = 0;
-
-    for(int k=0; k<3; ++k){
-        for(int i=0; i< 10; ++i){
-            auto start = std::chrono::system_clock::now();
-
-            generate_RSA(rsa,sizes[k], bignum);
-
-            auto end = std::chrono::system_clock::now();
-
-            std::this_thread::sleep_for(std::chrono::seconds(10) - (end - start));
-            end = std::chrono::system_clock::now();
-            auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-            double elapsed_secs = elapsed.count() / 1000000.0;
-            full_time += elapsed_secs;
-        }
-        cout << "Average time for key generation of size " << sizes[k] << " is " << full_time/10 << endl;
-        full_time = 0;
-    }
-}
-
-void testSignOld(){
+void testSign(){
     char *msg = "xd";
     BIGNUM* bignum = BN_new();
     BN_bin2bn((unsigned char*)msg, strlen(msg)+1, bignum);
@@ -320,119 +249,6 @@ void testSignOld(){
     cout << "Average time for message signature for key of size " << BN_num_bits(pkey->n) << " is " << full_time/100 << endl;
 }
 
-
-void testSignNotConst(){
-    char *msg = "xd";
-    BIGNUM* bignum = BN_new();
-    BN_bin2bn((unsigned char*)msg, strlen(msg)+1, bignum);
-
-    RSA* pkey = NULL;
-    EVP_PKEY* evp_pkey = NULL;
-    FILE* pFile = fopen("pprivate.pem","rt");
-    evp_pkey = PEM_read_PrivateKey(pFile, &evp_pkey, NULL, NULL);
-    pkey = EVP_PKEY_get1_RSA(evp_pkey);
-
-    RSA* pubkey = NULL;
-    EVP_PKEY* evp_pubkey = NULL;
-    FILE* pubFile = fopen("/home/kacper/programowanie/security/l6/bserver/cmake-build-debug/ppublic.pem","r+");
-    evp_pubkey = PEM_read_PUBKEY(pubFile, NULL, NULL, NULL);
-    pubkey = EVP_PKEY_get1_RSA(evp_pubkey);
-
-    BN_CTX *ctx = BN_CTX_new();
-
-    BIGNUM* rnd = BN_new();
-
-    BIGNUM* rndexp = BN_new();
-
-    BIGNUM* z = BN_new();
-
-    BIGNUM* y = BN_new();
-
-    BIGNUM* ret = BN_new();
-
-    BIGNUM* rndinv = BN_new();
-
-    double full_time = 0;
-    for(int i=0; i< 100; ++i){
-        clock_t begin = clock();
-
-        BN_rand_range(rnd, pkey->n);
-
-        BN_mod_exp(rndexp, rnd, pubkey->e, pkey->n, ctx);
-
-        BN_mod_mul(z, rndexp, bignum, pkey->n, ctx);
-
-        BN_mod_inverse(rndinv, rnd, pkey->n, ctx);
-
-        BN_mod_exp(y, z, pkey->d, pkey->n, ctx);
-
-        BN_mod_mul(ret, rndinv, y, pkey->n, ctx);
-
-        clock_t end = clock();
-        double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-        full_time += elapsed_secs;
-    }
-    cout << "Average time for message signature for key of size " << BN_num_bits(pkey->n) << " is " << full_time/100 << endl;
-}
-
-void testSign(){
-    char *msg = "xd";
-    BIGNUM* bignum = BN_new();
-    BN_bin2bn((unsigned char*)msg, strlen(msg)+1, bignum);
-
-    RSA* pkey = NULL;
-    EVP_PKEY* evp_pkey = NULL;
-    FILE* pFile = fopen("pprivate.pem","rt");
-    evp_pkey = PEM_read_PrivateKey(pFile, &evp_pkey, NULL, NULL);
-    pkey = EVP_PKEY_get1_RSA(evp_pkey);
-
-    RSA* pubkey = NULL;
-    EVP_PKEY* evp_pubkey = NULL;
-    FILE* pubFile = fopen("/home/kacper/programowanie/security/l6/bserver/cmake-build-debug/ppublic.pem","r+");
-    evp_pubkey = PEM_read_PUBKEY(pubFile, NULL, NULL, NULL);
-    pubkey = EVP_PKEY_get1_RSA(evp_pubkey);
-
-    BN_CTX *ctx = BN_CTX_new();
-
-    BIGNUM* rnd = BN_new();
-
-    BIGNUM* rndexp = BN_new();
-
-    BIGNUM* z = BN_new();
-
-    BIGNUM* y = BN_new();
-
-    BIGNUM* ret = BN_new();
-
-    BIGNUM* rndinv = BN_new();
-
-    double full_time = 0;
-    for(int i=0; i< 100; ++i){
-        auto start = std::chrono::system_clock::now();
-
-        BN_rand_range(rnd, pkey->n);
-
-        BN_mod_exp(rndexp, rnd, pubkey->e, pkey->n, ctx);
-
-        BN_mod_mul(z, rndexp, bignum, pkey->n, ctx);
-
-        BN_mod_inverse(rndinv, rnd, pkey->n, ctx);
-
-        BN_mod_exp(y, z, pkey->d, pkey->n, ctx);
-
-        BN_mod_mul(ret, rndinv, y, pkey->n, ctx);
-
-        auto end = std::chrono::system_clock::now();
-
-        std::this_thread::sleep_for(std::chrono::seconds(10) - (end - start));
-        end = std::chrono::system_clock::now();
-        auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-        double elapsed_secs = elapsed.count() / 1000000.0;
-        full_time += elapsed_secs;
-    }
-    cout << "Average time for message signature for key of size " << BN_num_bits(pkey->n) << " is " << full_time/100 << endl;
-
-}
 int main(int argc, char* argv[]) {
     string mode;
     cout << "Podaj tryb działania" << endl;

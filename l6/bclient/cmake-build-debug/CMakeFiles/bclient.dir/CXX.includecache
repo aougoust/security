@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kacper/programowanie/security/l6/bclient/main.cpp
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+netdb.h
+-
+iostream
+-
+openssl/rsa.h
+/home/kacper/programowanie/security/l6/bclient/openssl/rsa.h
+openssl/pem.h
+/home/kacper/programowanie/security/l6/bclient/openssl/pem.h
+fstream
+-
+cstring
+-
+

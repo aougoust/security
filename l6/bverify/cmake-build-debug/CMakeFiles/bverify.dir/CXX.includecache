@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kacper/programowanie/security/l6/bverify/main.cpp
+iostream
+-
+openssl/rsa.h
+/home/kacper/programowanie/security/l6/bverify/openssl/rsa.h
+openssl/pem.h
+/home/kacper/programowanie/security/l6/bverify/openssl/pem.h
+fstream
+-
+

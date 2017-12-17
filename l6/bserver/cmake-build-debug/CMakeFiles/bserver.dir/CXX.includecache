@@ -17,8 +17,6 @@ openssl/md5.h
 -
 unistd.h
 -
-sys/types.h
--
 sys/socket.h
 -
 netinet/in.h
@@ -28,5 +26,9 @@ fstream
 strings.h
 -
 cstring
+-
+chrono
+-
+thread
 -
 
