@@ -1,0 +1,26 @@
+L6
+
+Average time for key generation of size 2048 is 0.0943705
+Average time for key generation of size 4096 is 0.588912
+Average time for key generation of size 8192 is 4.70188
+
+
+Average time for message signature for key of size 2048 is 0.00192802
+Average time for message signature for key of size 4096 is 0.0123379
+Average time for message signature for key of size 8192 is 0.0894605
+
+Average time for message verification for key of size 2048 is 0.00205559
+Average time for message verification for key of size 4096 is 0.0127363
+Average time for message verification for key of size 8192 is 0.0907391
+
+L7.1
+
+Average time for message signature for key of size 2048 is 0.00249927
+Average time for message signature for key of size 4096 is 0.0160923
+Average time for message signature for key of size 8192 is 0.107655
+
+L7.2
+
+Average time for key generation of size 2048 is 10.0001
+Average time for key generation of size 4096 is 10.0002
+Average time for key generation of size 8192 is 10.325
