@@ -308,7 +308,7 @@ void testSignOld(){
     BIGNUM *a = BN_new();
 
     double full_time = 0;
-    for(int i=0; i< 100; ++i){
+    for(int i=0; i< 10; ++i){
         clock_t begin = clock();
 
         BN_mod_exp(a, bignum, pkey->d, pkey->n, ctx);
@@ -316,6 +316,7 @@ void testSignOld(){
         clock_t end = clock();
         double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
         full_time += elapsed_secs;
+        cout << "Example time for message signature for key of size " << BN_num_bits(pkey->n) << " is " << elapsed_secs << endl;
     }
     cout << "Average time for message signature for key of size " << BN_num_bits(pkey->n) << " is " << full_time/100 << endl;
 }
@@ -353,7 +354,7 @@ void testSignNotConst(){
     BIGNUM* rndinv = BN_new();
 
     double full_time = 0;
-    for(int i=0; i< 100; ++i){
+    for(int i=0; i< 10; ++i){
         clock_t begin = clock();
 
         BN_rand_range(rnd, pkey->n);
@@ -371,6 +372,7 @@ void testSignNotConst(){
         clock_t end = clock();
         double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
         full_time += elapsed_secs;
+        cout << "Example time for message signature for key of size " << BN_num_bits(pkey->n) << " is " << elapsed_secs << endl;
     }
     cout << "Average time for message signature for key of size " << BN_num_bits(pkey->n) << " is " << full_time/100 << endl;
 }
@@ -407,7 +409,7 @@ void testSign(){
     BIGNUM* rndinv = BN_new();
 
     double full_time = 0;
-    for(int i=0; i< 100; ++i){
+    for(int i=0; i< 10; ++i){
         auto start = std::chrono::system_clock::now();
 
         BN_rand_range(rnd, pkey->n);
@@ -429,6 +431,7 @@ void testSign(){
         auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
         double elapsed_secs = elapsed.count() / 1000000.0;
         full_time += elapsed_secs;
+        cout << "Example time for message signature for key of size " << BN_num_bits(pkey->n) << " is " << elapsed_secs << endl;
     }
     cout << "Average time for message signature for key of size " << BN_num_bits(pkey->n) << " is " << full_time/100 << endl;
 
@@ -474,7 +477,12 @@ int main(int argc, char* argv[]) {
     }else if(mode.compare("testgen") == 0){
         testGen();
     }else if(mode.compare("testsign") == 0){
+        cout << "CONSTANT TIME : \n" << endl;
         testSign();
+        cout << "ZAD1 TIME : \n" << endl;
+        testSignNotConst();
+        cout << "L5 TIME : \n" << endl;
+        testSignOld();
     }
     return 0;
 }
