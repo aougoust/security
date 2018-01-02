@@ -20,6 +20,121 @@ int generate_RSA(RSA* rsa, int bits, BIGNUM* bignum){
     return RSA_generate_key_ex(rsa, bits, bignum, NULL);
 }
 
+void generate_Safe_RSA(RSA* rsa, int bits, BIGNUM* bignum){
+    int quo;
+
+    quo = bits/2;
+
+    /* We need the RSA components non-NULL */
+
+    rsa->n = BN_new();
+    rsa->d = BN_new();
+    rsa->e = BN_new();
+    rsa->p = BN_new();
+    rsa->q = BN_new();
+    rsa->dmp1 = BN_new();
+    rsa->dmq1 = BN_new();
+    rsa->iqmp = BN_new();
+
+    BN_copy(rsa->e, bignum);
+
+    BIGNUM* prime;
+    BIGNUM *tmp;
+    prime = BN_new();
+    tmp = BN_new();
+
+    BN_generate_prime_ex(prime, quo, 1, NULL, NULL, NULL);
+
+    BN_copy(rsa->p, prime);
+
+    BN_CTX *ctx = BN_CTX_new();
+
+    BN_generate_prime_ex(prime, quo, 1, NULL, NULL, NULL);
+
+    BN_copy(rsa->q, prime);
+
+    BIGNUM* n = BN_new();
+
+    BN_mul(n, rsa->p, rsa->q, ctx);
+
+    BIGNUM *r1 = BN_new(),
+            *r2 = BN_new(),
+            *r0 = BN_new();
+
+
+
+    /* p - 1 */
+    BN_sub(r1, rsa->p, BN_value_one());
+    /* q - 1 */
+    BN_sub(r2, rsa->q, BN_value_one());
+    /* (p - 1)(q - 1) */
+    BN_mul(r0, r1, r2, ctx);
+
+    {
+        BIGNUM *pr0 = BN_new();
+
+        BN_with_flags(pr0, r0, BN_FLG_CONSTTIME);
+        BN_mod_inverse(rsa->d, rsa->e, pr0, ctx);
+    }
+
+
+    {
+        BIGNUM *d = BN_new();
+
+        BN_with_flags(d, rsa->d, BN_FLG_CONSTTIME);
+
+        /* calculate d mod (p-1) and d mod (q - 1) */
+        BN_mod(rsa->dmp1, d, r1, ctx);
+        BN_mod(rsa->dmq1, d, r2, ctx);
+    }
+
+
+    {
+        BIGNUM *p = BN_new();
+
+        BN_with_flags(p, rsa->p, BN_FLG_CONSTTIME);
+
+        /* calculate inverse of q mod p */
+        BN_mod_inverse(rsa->iqmp, rsa->q, p, ctx);
+    }
+}
+
+bool generateSafeKeys(int bits, string path){
+    int ret = false;
+    RSA *rsa = NULL;
+    BIGNUM *bignum = NULL;
+    BIO    *bp_private = NULL, *bp_public = NULL;
+
+    unsigned long e = RSA_F4;
+
+    bignum = BN_new();
+    ret = BN_set_word(bignum, e);
+    string pstart = path;
+
+    if(ret != 1)return false;
+
+    rsa = RSA_new();
+
+    generate_Safe_RSA(rsa, bits, bignum);
+
+    string pbkpath = path.append("sfpublic.pem");
+    const char* publick_path = pbkpath.c_str();
+
+    bp_public = BIO_new_file(publick_path, "w+");
+    ret = PEM_write_bio_RSA_PUBKEY(bp_public, rsa);
+    if(ret != 1)return false;
+
+    path = pstart;
+    string pvkpath = path.append("sfprivate.pem");
+    const char* privatek_path = pvkpath.c_str();
+
+    bp_private = BIO_new_file(privatek_path, "w+");
+    ret = PEM_write_bio_RSAPrivateKey(bp_private, rsa, NULL, NULL, NULL, 0, NULL);
+    if(ret != 1)return false;
+
+    return true;
+}
+
 bool generateKeys(int bits, string path){
     int ret = false;
     RSA *rsa = NULL;
@@ -258,6 +373,36 @@ void testGenOld(){
     }
 }
 
+void testGenSafe(){
+    RSA *rsa = NULL;
+    BIGNUM *bignum = NULL;
+
+    unsigned long e = RSA_F4;
+
+    bignum = BN_new();
+    BN_set_word(bignum, e);
+
+    int sizes[4] = {2048, 4096, 8192, 16384};
+
+    rsa = RSA_new();
+
+    long double full_time = 0;
+
+    for(int k=0; k<3; ++k){
+        for(int i=0; i< 10; ++i){
+            clock_t begin = clock();
+
+            generate_Safe_RSA(rsa,sizes[k], bignum);
+
+            clock_t end = clock();
+            double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+            full_time += elapsed_secs;
+        }
+        cout << "Average time for key generation of size " << sizes[k] << " is " << full_time/10 << endl;
+        full_time = 0;
+    }
+}
+
 void testGen(){
     RSA *rsa = NULL;
     BIGNUM *bignum = NULL;
@@ -447,7 +592,7 @@ int main(int argc, char* argv[]) {
         cout << "Podaj ścieżkę do zapisu kluczy" << endl;
         string path;
         cin >> path;
-        if(generateKeys(size, path)){
+        if(generateSafeKeys(size, path)){
             cout << "keys generated successfully" << endl;
         } else{
             cout << "keys not generated :c" << endl;
@@ -475,7 +620,7 @@ int main(int argc, char* argv[]) {
         portno = atoi(port.c_str());
         mylisten(portno);
     }else if(mode.compare("testgen") == 0){
-        testGen();
+        testGenSafe();
     }else if(mode.compare("testsign") == 0){
         cout << "CONSTANT TIME : \n" << endl;
         testSign();
