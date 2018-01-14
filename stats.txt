@@ -24,3 +24,9 @@ L7.2
 Average time for key generation of size 2048 is 10.0001
 Average time for key generation of size 4096 is 10.0002
 Average time for key generation of size 8192 is 10.325
+
+
+L9
+
+Average time for key generation of size 2048 is 6.10271
+Average time for key generation of size 4096 is 83.178
